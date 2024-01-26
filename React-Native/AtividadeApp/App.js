@@ -7,7 +7,7 @@ export default function App() {
     <View style={styles.container}>
 
       <View style={styles.div1}>
-        <Image style={styles.image} source={require('./src/assets/login.png')} />
+        <Image style={styles.image} source={require('./src/assets/lacoste.png')} />
 
         <Text style={styles.text}>LOGIN</Text>
 
@@ -45,19 +45,18 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     justifyContent: 'space-evenly',
     alignItems: 'center',
-
   },
   div1: {
-    flex: 1,
-    justifyContent: 'space-around',
+
+    height: '50%',
     alignItems: 'center'
   },
   div2: {
     paddingTop: 30,
-    flex: 1,
+    height: '50%',
     justifyContent: 'space-evenly',
     alignItems: 'center',
-    width: '70%'
+    width: '80%'
   },
   text: {
     fontSize: 40,
@@ -65,8 +64,8 @@ const styles = StyleSheet.create({
     fontWeight: 500
   },
   image: {
-    height: 180,
-    width: 180
+    height: 280,
+    width: 280
   },
   btn: {
     width: '100%',
@@ -76,7 +75,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     fontWeight: 500,
-    backgroundColor: '#00BFFF'
+    backgroundColor: '#006400'
   },
   textBtn: {
     fontWeight: 500,
@@ -84,6 +83,7 @@ const styles = StyleSheet.create({
   },
   input: {
     borderWidth: 2,
+    borderColor: '#006400',
     width: '82%',
     height: 50,
     padding: 10
