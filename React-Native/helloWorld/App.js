@@ -6,7 +6,7 @@ export default function App() {
   return (
     <View style={estilos.container}>
 
-      {/* <Image style={estilos.imagem} source={require('./src/assets/react.png')}/> */}
+      <Image style={estilos.imagem} source={require('./src/assets/react.png')}/>
 
       <Text style={estilos.text}>HELLO, WORLD!</Text>
 
