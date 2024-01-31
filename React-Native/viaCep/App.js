@@ -1,20 +1,23 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+
+import { useFonts, Roboto_500Medium, Roboto_700Bold } from '@expo-google-fonts/roboto';
+import { ContainerApp } from './src/components/Container/Container';
+import { Header } from './src/components/Header/Index';
+import { Home } from './src/screens/Home';
+
+
+
 
 export default function App() {
+  const[] = useFonts({
+    Roboto_500Medium,
+    Roboto_700Bold
+  })
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <ContainerApp>
+      <Header></Header>
+
+      <Home/>
+    </ContainerApp>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
