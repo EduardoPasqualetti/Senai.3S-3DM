@@ -10,7 +10,7 @@ export const HeaderContainer = styled.View`
     justify-content: center;
     align-items: center;
     border-radius: 0px 0px 15px 15px;
-    box-shadow: 0px 0px 10px #FECC2B;
+    box-shadow: 0px 0px 10px #000000;
     /* shadow-color: red ;
     shadow-offset: 0px 4px;
     shadow-opacity: 0.15;
