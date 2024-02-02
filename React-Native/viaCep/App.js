@@ -8,10 +8,14 @@ import { ContainerApp } from './styles';
 
 
 export default function App() {
-  const[] = useFonts({
+  const[fontsLoaded, fontError] = useFonts({
     Roboto_500Medium,
     Roboto_700Bold
   })
+
+  if (!fontsLoaded && !fontError) {
+    return null
+  }
 
   return (
     <ContainerApp>

@@ -6,14 +6,14 @@ editable,
 fieldValue,
 onChangeText,
 keyType,
-maxLenght
+maxLength
 }) {
     return(
         <InputText
         placeholder={placeholder}
         editable={editable}
         keyboardType={keyType}
-        maxLenght={maxLenght}
+        maxLength={maxLength}
         value= {fieldValue}
         onChangeText={onChangeText}
         />
