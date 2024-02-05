@@ -13,7 +13,8 @@ export const BoxInput = ({
     fieldValue,
     onChangeText,
     keyType = 'default',
-    maxLength 
+    maxLength,
+    onBlur = null
 }) => {
     
     return(
@@ -27,6 +28,7 @@ export const BoxInput = ({
             maxLength={maxLength}
             fieldValue={fieldValue}
             onChangeText={onChangeText}
+            onBlur={onBlur}
             />
         </FieldContent>
     )

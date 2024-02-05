@@ -11,16 +11,6 @@ export function Home(){
     const [cep, setCep] = useState()
     const [endereco, setEndereco] = useState({})
 
-    //hooks - effect
-    useEffect(() => {
-        if (cep) {
-          getCep();
-        }
-        else {
-            clearCep();
-        }
-      }, [cep]);
-
 
         //chamada da api
     const getCep = async () => {
@@ -55,8 +45,9 @@ export function Home(){
                     maxLength={8}
                     editable={true}
                     fieldValue={cep}
-                    onChangeText={setCep}
+                    onChangeText={t => setCep(t)}
                     keyType="numeric"
+                    onBlur={cep ? getCep : clearCep}
                 />
             
                 <BoxInput 
@@ -76,10 +67,10 @@ export function Home(){
                 />
                 <ViewUF>
                 <BoxInput 
-                    textLabel= "Estado"
-                    placeholder= "Estado..."
+                    textLabel= "DDD"
+                    placeholder= "DDD..."
                     fieldWidth= "67"
-                    fieldValue={endereco.uf}
+                    fieldValue={endereco.ddd}
                 />
                 <BoxInput 
                     textLabel= "UF"

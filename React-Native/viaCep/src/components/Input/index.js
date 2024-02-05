@@ -6,7 +6,8 @@ editable,
 fieldValue,
 onChangeText,
 keyType,
-maxLength
+maxLength,
+onBlur = null
 }) {
     return(
         <InputText
@@ -16,6 +17,7 @@ maxLength
         maxLength={maxLength}
         value= {fieldValue}
         onChangeText={onChangeText}
+        onBlur={onBlur}
         />
     )
 }
