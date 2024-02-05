@@ -10,6 +10,7 @@ export function Home(){
     //hooks - states
     const [cep, setCep] = useState()
     const [endereco, setEndereco] = useState({})
+    const [estado, setEstado] = useState()
 
 
         //chamada da api
@@ -18,6 +19,9 @@ export function Home(){
             if (cep.length === 8 && cep != "") {
                 const response = await axios.get(`https://viacep.com.br/ws/${cep}/json/`)
             setEndereco(response.data)
+
+            const estado = await axios.get (`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${response.data.uf}`)
+            setEstado(estado.data.nome);
             }
             
         } catch (error) {
@@ -27,6 +31,7 @@ export function Home(){
 
     function clearCep(){
         setEndereco({})
+        setEstado()
     }
 
 
@@ -67,10 +72,10 @@ export function Home(){
                 />
                 <ViewUF>
                 <BoxInput 
-                    textLabel= "DDD"
-                    placeholder= "DDD..."
+                    textLabel= "Estado"
+                    placeholder= "Estado..."
                     fieldWidth= "67"
-                    fieldValue={endereco.ddd}
+                    fieldValue={estado}
                 />
                 <BoxInput 
                     textLabel= "UF"
