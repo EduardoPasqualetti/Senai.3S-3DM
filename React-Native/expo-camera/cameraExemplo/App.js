@@ -15,6 +15,18 @@ export default function App() {
   const [openModal, setOpenModal] = useState(false)
   const [tipoCamera, setTipoCamera] = useState(Camera.Constants.Type.front)
   const [flashOn, setFlashOn] = useState(Camera.Constants.FlashMode.off);
+  const [gravandoVideo, setGravandoVideo] = useState(false);
+
+  const toggleVideoRecording = async () => {
+    if (gravandoVideo) {
+      await cameraRef.current.stopRecording();
+    } else {
+      const videoRecordPromise = cameraRef.current.recordAsync();
+      if (videoRecordPromise) {
+        setGravandoVideo(true);
+      }
+    }
+  };
 
   async function CapturePhoto() {
     if (cameraRef) {
@@ -68,8 +80,8 @@ export default function App() {
         </TouchableOpacity>
 
 
-        <TouchableOpacity style={styles.btnCaptura} onPress={() => CapturePhoto()}>
-        <FontAwesome name="circle-thin" size={70} color="black" />
+        <TouchableOpacity style={styles.btnCaptura} onPress={ () => gravandoVideo ? toggleVideoRecording() : CapturePhoto()}>
+          <View style={styles.viewCamera}></View>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.btnFlip} onPress={() => setTipoCamera(tipoCamera == CameraType.front ? CameraType.back : CameraType.front)}>
@@ -145,14 +157,14 @@ const styles = StyleSheet.create({
     color: '#fff'
   },
   btnCaptura: {
-    borderRadius: 120,
+    width: 75,
+    height: 75,
+    borderRadius: 40,
+    borderWidth: 3,
+    borderColor: '#fff',
+    backgroundColor: 'transparent',
     alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#fff',
-    marginBottom: 10,
-    marginTop: 10,
-    width: 70,
-    height: 70
+    justifyContent: 'center'
   },
   btnFlash:{
     padding: 20,
@@ -186,5 +198,14 @@ const styles = StyleSheet.create({
 
     alignItems: 'center',
     justifyContent: 'center'
+  },
+  viewCamera: {
+    width: '100%',
+    height: '100%',
+    borderWidth: 3,
+    borderColor: 'black',
+    borderRadius: 40,
+    backgroundColor: '#FFF'
   }
+
 });
