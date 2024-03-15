@@ -15,18 +15,8 @@ export default function App() {
   const [openModal, setOpenModal] = useState(false)
   const [tipoCamera, setTipoCamera] = useState(Camera.Constants.Type.front)
   const [flashOn, setFlashOn] = useState(Camera.Constants.FlashMode.off);
-  const [gravandoVideo, setGravandoVideo] = useState(false);
 
-  const toggleVideoRecording = async () => {
-    if (gravandoVideo) {
-      await cameraRef.current.stopRecording();
-    } else {
-      const videoRecordPromise = cameraRef.current.recordAsync();
-      if (videoRecordPromise) {
-        setGravandoVideo(true);
-      }
-    }
-  };
+
 
   async function CapturePhoto() {
     if (cameraRef) {
@@ -80,7 +70,7 @@ export default function App() {
         </TouchableOpacity>
 
 
-        <TouchableOpacity style={styles.btnCaptura} onPress={ () => gravandoVideo ? toggleVideoRecording() : CapturePhoto()}>
+        <TouchableOpacity style={styles.btnCaptura} onPress={ () => CapturePhoto()}>
           <View style={styles.viewCamera}></View>
         </TouchableOpacity>
 
